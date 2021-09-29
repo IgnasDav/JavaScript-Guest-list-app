@@ -19,6 +19,8 @@ const errorMessage = document.createElement("p");
 const listItem = document.createElement("li");
 const btnMoveLastToFirst = document.querySelector(".btn__moveLastToFirst");
 const btnMoveFirstToLast = document.querySelector(".btn__moveFirstToLast");
+listItem.classList = "main__listItem";
+
 errorMessage.textContent = "Wrong Input";
 
 function drawList() {

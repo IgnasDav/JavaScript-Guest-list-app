@@ -19,7 +19,9 @@ const errorMessage = document.createElement("p");
 const listItem = document.createElement("li");
 const btnMoveLastToFirst = document.querySelector(".btn__moveLastToFirst");
 const btnMoveFirstToLast = document.querySelector(".btn__moveFirstToLast");
-listItem.classList = "main__listItem";
+const btnSortAZ = document.querySelector(".btn__sortA-Z");
+const btnSortZA = document.querySelector(".btn__sortZ-A");
+listItem.classList.add = "main__listItem";
 
 errorMessage.textContent = "Wrong Input";
 
@@ -108,3 +110,104 @@ btnMoveFirstToLast.addEventListener("click", (event) => {
   guestList.push(firstValue);
   drawList();
 });
+
+//Reversing a string
+let string = "Hello";
+function textReverse(string) {
+  const stringArr = string.split("");
+  stringArr.reverse();
+  console.log(stringArr.join(""));
+}
+textReverse(string);
+
+//Sorting A-Z
+btnSortAZ.addEventListener("click", (event) => {
+  event.preventDefault();
+  guestList.sort((a, b) => {
+    let nameA = a.toUpperCase();
+    let nameB = b.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  drawList();
+});
+//Sorting B-Z
+btnSortZA.addEventListener("click", (event) => {
+  event.preventDefault();
+  guestList.sort((a, b) => {
+    let nameA = a.toUpperCase();
+    let nameB = b.toUpperCase();
+    if (nameA < nameB) {
+      return 1;
+    }
+    if (nameA > nameB) {
+      return -1;
+    }
+    return 0;
+  });
+  drawList();
+});
+const arr = [
+  "Marshmallow",
+  "fruitcake",
+  "gummies",
+  "muffin",
+  "marzipan",
+  "lemon",
+  "drops",
+  "pastry",
+  "candy",
+  "canes",
+  "macaroon.",
+  "Powder",
+  "soufflé",
+  "candy",
+  "canes",
+  "caramels",
+  "bonbon",
+  "oat",
+  "cake",
+  "pastry",
+  "caramels.",
+  "Apple",
+  "pie",
+  "dragée",
+  "donut",
+  "jujubes",
+  "sesame",
+  "snaps",
+  "pastry",
+  "tootsie",
+  "roll",
+  "bear",
+  "claw.",
+  "Brownie",
+  "dragée",
+  "sugar",
+  "plum",
+  "cake",
+  "candy",
+  "chocolate",
+  "bar",
+];
+let string1 = "cake";
+let string2 = "🎂";
+//Replacing an item in an array
+function findAndReplace(array, string1, string2) {
+  array.find((singleElement) => {
+    if (singleElement === string1) {
+      const stringArr = arr.toString();
+      const replacedArr = stringArr.replace(string1, string2);
+      console.log(replacedArr.split(","));
+      return true;
+    }
+    return false;
+  });
+}
+findAndReplace(arr, string1, string2);

@@ -114,9 +114,7 @@ btnMoveFirstToLast.addEventListener("click", (event) => {
 //Reversing a string
 let string = "Hello";
 function textReverse(string) {
-  const stringArr = string.split("");
-  stringArr.reverse();
-  console.log(stringArr.join(""));
+  return string.split("").reverse().join("");
 }
 textReverse(string);
 
@@ -124,36 +122,19 @@ textReverse(string);
 btnSortAZ.addEventListener("click", (event) => {
   event.preventDefault();
   guestList.sort((a, b) => {
-    let nameA = a.toUpperCase();
-    let nameB = b.toUpperCase();
-
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
+    return a.localeCompare(b);
   });
   drawList();
 });
 //Sorting B-Z
 btnSortZA.addEventListener("click", (event) => {
   event.preventDefault();
-  guestList.sort((a, b) => {
-    let nameA = a.toUpperCase();
-    let nameB = b.toUpperCase();
-    if (nameA < nameB) {
-      return 1;
-    }
-    if (nameA > nameB) {
-      return -1;
-    }
-    return 0;
+  guestList.sort((a, z) => {
+    return z.localeCompare(a);
   });
   drawList();
 });
-const arr = [
+const array = [
   "Marshmallow",
   "fruitcake",
   "gummies",
@@ -202,12 +183,9 @@ let string2 = "🎂";
 function findAndReplace(array, string1, string2) {
   array.find((singleElement) => {
     if (singleElement === string1) {
-      const stringArr = arr.toString();
-      const replacedArr = stringArr.replace(string1, string2);
-      console.log(replacedArr.split(","));
-      return true;
+      console.log(array.toString().replace(string1, string2).split(","));
+      return array.toString().replace(string1, string2).split(",");
     }
-    return false;
   });
 }
-findAndReplace(arr, string1, string2);
+findAndReplace(array, string1, string2);

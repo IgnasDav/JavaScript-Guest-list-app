@@ -183,9 +183,10 @@ let string2 = "🎂";
 function findAndReplace(array, string1, string2) {
   array.find((singleElement) => {
     if (singleElement === string1) {
-      console.log(array.toString().replace(string1, string2).split(","));
       return array.toString().replace(string1, string2).split(",");
     }
+    return false;
   });
 }
 findAndReplace(array, string1, string2);
+//
